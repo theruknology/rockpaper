@@ -3,6 +3,7 @@ const rockCard = document.querySelector('.rk');
 const paperCard = document.querySelector('.pp');
 const scissorCard = document.querySelector('.sc');
 const messenger = document.querySelector('.message');
+const scoreCard = document.querySelector('.scorecard');
 
 cards = ['Rock', 'Paper', 'Scissor'];
 
@@ -26,6 +27,10 @@ function checkWin(op1, op2) {
     return result;
 }
 
+function updateScore(p,c) {
+    scoreCard.innerHTML = 'PLAYER - ' + p + '<br>COMPUTER - ' + c;
+}
+
 function sendMessage(str) {
     messenger.innerHTML = str;
 }
@@ -36,9 +41,17 @@ function compdisplay(str) {
 
 var playerSelection = '';
 var computerSelecection = '';
+var playerScore = 0;
+var pcScore = 0;
 
 function playRound(player) {
 
+    if (playerScore >= 5 || pcScore >= 5) {
+        alert('New Game Started');
+        playerScore = 0;
+        pcScore = 0;
+    }
+    
     playerSelection = player.innerHTML;
 
     computerSelecection = computerSel();
@@ -46,24 +59,30 @@ function playRound(player) {
 
     if (checkWin(playerSelection,computerSelecection) == 'Win') {
         sendMessage("You won the move!");
+        playerScore ++;
         console.log('won');
     } else if (checkWin(playerSelection,computerSelecection) == 'Draw'){
         sendMessage("It was a Draw");
     } else {
         sendMessage("You lost!");
         console.log('lost');
- 
-    }  
+        pcScore++;
+
+    }
+
 }
 
 rockCard.addEventListener('click', () => {
     playRound(rockCard);
+    updateScore(playerScore, pcScore);
 });
 paperCard.addEventListener('click', () => {
     playRound(paperCard);
+    updateScore(playerScore, pcScore);
 });
 scissorCard.addEventListener('click', () => {
     playRound(scissorCard);
+    updateScore(playerScore, pcScore);
 });
 
 
