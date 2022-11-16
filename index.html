@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="app.js" defer></script>
+    <style>
+
+        body {
+            background-color: rgb(17, 23, 54);
+            font-family: sans-serif;
+            color: rgb(255, 174, 0);
+            min-height: 80vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .item-card-pc,
+        .item-card {
+            width: fit-content;
+            background-color: rgb(255, 174, 0);
+            color: rgb(17, 23, 54);
+            padding: 3rem;
+            font-size: 1.5rem;
+            font-weight: 400;
+            border: 2px solid white;
+        }
+
+        .main-container {
+            display: flex;
+            width: 100%;
+            border: 1px solid red;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 2rem;
+        }
+
+        .pc-side {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        } 
+
+        .divider {
+            width: 5px;
+            height: 300px;
+            background-color: white;
+            border-radius: 100px;
+        }
+
+        .player-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .message {
+            background-color: aqua;
+            text-align: center;
+            width: fit-content;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: black;
+            padding: 1rem;
+            border-radius: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+
+        <div class="pc-side">
+            <div class="item-card-pc">?</div>
+        </div>
+
+        <div class="divider"></div>
+        
+        <div class="player-side">
+            <div class="item-card rk">Rock</div>
+            <div class="item-card pp">Paper</div>
+            <div class="item-card sc">Scissor</div>
+        </div>
+        
+    </div>
+    
+    <div class="message">You won</div> 
+    
+
+</body>
+</html>
