@@ -2,6 +2,7 @@ const pcCard = document.querySelector('.item-card-pc');
 const rockCard = document.querySelector('.rk');
 const paperCard = document.querySelector('.pp');
 const scissorCard = document.querySelector('.sc');
+const messenger = document.querySelector('.message');
 
 cards = ['Rock', 'Paper', 'Scissor'];
 
@@ -25,16 +26,44 @@ function checkWin(op1, op2) {
     return result;
 }
 
+function sendMessage(str) {
+    messenger.innerHTML = str;
+}
+
+function compdisplay(str) {
+    pcCard.innerHTML = str;
+}
+
 var playerSelection = '';
+var computerSelecection = '';
+
+function playRound(player) {
+
+    playerSelection = player.innerHTML;
+
+    computerSelecection = computerSel();
+    compdisplay(computerSelecection);
+
+    if (checkWin(playerSelection,computerSelecection) == 'Win') {
+        sendMessage("You won the move!");
+        console.log('won');
+    } else if (checkWin(playerSelection,computerSelecection) == 'Draw'){
+        sendMessage("It was a Draw");
+    } else {
+        sendMessage("You lost!");
+        console.log('lost');
+ 
+    }  
+}
 
 rockCard.addEventListener('click', () => {
-    playerSelection = rockCard.innerHTML;
+    playRound(rockCard);
 });
 paperCard.addEventListener('click', () => {
-    playerSelection = paperCard.innerHTML;
+    playRound(paperCard);
 });
 scissorCard.addEventListener('click', () => {
-    playerSelection = scissorCard.innerHTML;
+    playRound(scissorCard);
 });
 
-console.log(checkWin('Paper', 'asdf'));
+
